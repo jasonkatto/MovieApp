@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<data>
+    <variable
+        name="movie"
+        type="com.jstudio.movieapp.model.MoviesInfo" />
+    <variable
+        name="listener"
+        type="com.jstudio.movieapp.view.MoviesClickListener" />
+</data>
+
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    android:onClick="@{listener::onMoviesClicked}">
+
+    <TextView
+        android:id="@+id/movieId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:text="@{String.valueOf(movie.uuid)}"/>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:imageUrl="@{movie.imageUrl}"
+        android:padding="4dp"/>
+
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="3"
+    android:padding="4dp"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{movie.movieName"
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/movie_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{movie.movieId}"
+        android:textSize="14sp"/>
+
+</LinearLayout>
+
+</LinearLayout>
+</layout>
